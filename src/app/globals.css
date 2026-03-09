@@ -1,26 +1,38 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-deep-purple: #1a0a2e;
+  --color-electric-blue: #00d4ff;
+  --color-neon-pink: #ff006e;
+  --color-neon-green: #39ff14;
+  --color-void-black: #000005;
+  --color-text-primary: #e8e8f0;
+  --color-text-secondary: #8888aa;
+  --color-panel-bg: rgba(10, 10, 40, 0.85);
+  --color-panel-border: rgba(0, 212, 255, 0.5);
+  --font-mono: "Geist Mono", "Fira Code", "Cascadia Code", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #000005;
+  color: #e8e8f0;
+  overflow-x: hidden;
+  font-family: var(--font-mono);
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  scrollbar-width: none;
+}
+
+/* Prevent canvas from capturing pointer events when HTML overlays need them */
+canvas {
+  touch-action: none;
 }
