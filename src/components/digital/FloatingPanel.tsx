@@ -42,26 +42,32 @@ export default function FloatingPanel({
 
   return (
     <group ref={groupRef} position={position}>
-      {/* Glass background */}
+      {/* Glass background - darker for readability */}
       <mesh>
-        <planeGeometry args={[2.5, 1.5]} />
+        <planeGeometry args={[2.8, 2]} />
         <meshBasicMaterial
-          color="#050520"
+          color="#030310"
           transparent
-          opacity={0.6}
+          opacity={0.85}
           side={THREE.DoubleSide}
         />
       </mesh>
 
       {/* Border glow */}
       <mesh>
-        <planeGeometry args={[2.55, 1.55]} />
+        <planeGeometry args={[2.85, 2.05]} />
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={0.15}
+          opacity={0.2}
           side={THREE.DoubleSide}
         />
+      </mesh>
+
+      {/* Top accent line */}
+      <mesh position={[0, 1.0, 0.005]}>
+        <planeGeometry args={[2.7, 0.008]} />
+        <meshBasicMaterial color={color} transparent opacity={0.6} />
       </mesh>
 
       {/* HTML Content */}
@@ -74,29 +80,30 @@ export default function FloatingPanel({
         <div
           style={{
             width: `${width}px`,
-            padding: "20px",
-            fontFamily: "monospace",
+            padding: "22px",
+            fontFamily:
+              "'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
             color: "#e8e8f0",
             userSelect: "none",
           }}
         >
           <h3
             style={{
-              fontSize: "16px",
-              fontWeight: "bold",
+              fontSize: "15px",
+              fontWeight: 700,
               color: color,
-              marginBottom: "10px",
+              marginBottom: "14px",
               textTransform: "uppercase",
-              letterSpacing: "2px",
+              letterSpacing: "3px",
             }}
           >
             {title}
           </h3>
           <div
             style={{
-              fontSize: "12px",
-              lineHeight: "1.6",
-              color: "#8888aa",
+              fontSize: "13px",
+              lineHeight: "1.7",
+              color: "#c0c0dd",
             }}
           >
             {content}

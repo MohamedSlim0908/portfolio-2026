@@ -6,22 +6,64 @@ import DataParticles from "../digital/DataParticles";
 import HolographicText from "../digital/HolographicText";
 
 const skillCategories = [
-  { label: "Languages", items: "C++ · Python · JavaScript · HTML · CSS", color: "#00d4ff" },
-  { label: "Frontend", items: "React · Vue.js · Bootstrap · Three.js", color: "#aa88ff" },
-  { label: "Backend", items: "Node.js · Express · FastAPI · REST APIs", color: "#00ffaa" },
-  { label: "Data & ML", items: "Pandas · scikit-learn · Matplotlib · Jupyter", color: "#ff88aa" },
-  { label: "Tools", items: "Docker · Git · PostgreSQL · SQLite · Swagger", color: "#ffaa44" },
+  {
+    label: "Languages",
+    items: ["C++", "Python", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"],
+    color: "#00d4ff",
+  },
+  {
+    label: "Frontend",
+    items: ["React", "Next.js", "Vue.js", "Three.js", "Tailwind", "Bootstrap"],
+    color: "#aa88ff",
+  },
+  {
+    label: "Backend",
+    items: ["Node.js", "Express", "FastAPI", "REST APIs", "WebSockets"],
+    color: "#00ffaa",
+  },
+  {
+    label: "Data & ML",
+    items: ["Pandas", "scikit-learn", "Matplotlib", "Jupyter", "NumPy"],
+    color: "#ff88aa",
+  },
+  {
+    label: "DevOps & Tools",
+    items: ["Docker", "Git", "PostgreSQL", "Redis", "Prisma", "Swagger"],
+    color: "#ffaa44",
+  },
 ];
 
 const SkillsContent = () => (
-  <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
     {skillCategories.map((cat) => (
       <div key={cat.label}>
-        <span style={{ color: cat.color, fontSize: "11px", fontWeight: "bold" }}>
+        <div
+          style={{
+            color: cat.color,
+            fontSize: "13px",
+            fontWeight: 700,
+            marginBottom: "4px",
+            letterSpacing: "0.5px",
+          }}
+        >
           {cat.label}
-        </span>
-        <div style={{ color: "#9999bb", fontSize: "11px", marginTop: "1px" }}>
-          {cat.items}
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
+          {cat.items.map((item) => (
+            <span
+              key={item}
+              style={{
+                color: "#d0d0e8",
+                fontSize: "11px",
+                background: `${cat.color}15`,
+                border: `1px solid ${cat.color}30`,
+                padding: "2px 8px",
+                borderRadius: "4px",
+              }}
+            >
+              {item}
+            </span>
+          ))}
         </div>
       </div>
     ))}
@@ -29,59 +71,113 @@ const SkillsContent = () => (
 );
 
 const AboutContent = () => (
-  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-    <div style={{ color: "#ccccee", fontSize: "12px", lineHeight: "1.5" }}>
-      Full-stack developer and Computer Science student at
-      <span style={{ color: "#aa88ff" }}> Université Laval</span>, Québec.
+  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+    <div style={{ color: "#e0e0f5", fontSize: "14px", lineHeight: "1.7" }}>
+      Computer Science student at{" "}
+      <span style={{ color: "#aa88ff", fontWeight: 700 }}>Universit&eacute; Laval</span>,
+      Qu&eacute;bec. Building full-stack applications and exploring the intersection
+      of design, code, and user experience.
     </div>
-    <div style={{ color: "#9999bb", fontSize: "11px", lineHeight: "1.5" }}>
-      Passionate about building modern web applications, creative coding,
-      and exploring machine learning. Always looking for new challenges.
+    <div style={{ color: "#b0b0d0", fontSize: "13px", lineHeight: "1.7" }}>
+      Currently developing{" "}
+      <span style={{ color: "#39ff14", fontWeight: 600 }}>Makteb</span> &mdash; a
+      community-driven learning platform for Tunisia &amp; North Africa. Passionate
+      about crafting impactful products from idea to deployment.
     </div>
     <div style={{ display: "flex", gap: "8px", marginTop: "4px" }}>
-      {["GitHub", "LinkedIn"].map((label) => (
-        <span
-          key={label}
+      {[
+        { label: "GitHub", href: "https://github.com/MohamedSlim0908" },
+        { label: "LinkedIn", href: "https://linkedin.com" },
+      ].map((link) => (
+        <a
+          key={link.label}
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
-            fontSize: "10px",
+            fontSize: "12px",
             color: "#00d4ff",
-            border: "1px solid #00d4ff44",
-            padding: "2px 8px",
-            borderRadius: "3px",
+            border: "1px solid #00d4ff55",
+            padding: "4px 14px",
+            borderRadius: "5px",
+            textDecoration: "none",
+            pointerEvents: "auto",
+            cursor: "pointer",
+            transition: "all 0.2s",
           }}
         >
-          {label}
-        </span>
+          {link.label} &rarr;
+        </a>
       ))}
     </div>
   </div>
 );
 
 const ExperienceContent = () => (
-  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+  <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-        <span style={{ color: "#ff88aa", fontSize: "12px", fontWeight: "bold" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          marginBottom: "3px",
+        }}
+      >
+        <span style={{ color: "#ff88aa", fontSize: "14px", fontWeight: 700 }}>
           Admin Technician
         </span>
-        <span style={{ color: "#666688", fontSize: "9px" }}>2024 – Present</span>
+        <span style={{ color: "#8888aa", fontSize: "11px" }}>2024 &ndash; Present</span>
       </div>
-      <div style={{ color: "#9999bb", fontSize: "10px" }}>Retraite Québec · Québec, QC</div>
+      <div style={{ color: "#b0b0d0", fontSize: "12px", marginBottom: "4px" }}>
+        Retraite Qu&eacute;bec &middot; Qu&eacute;bec City, QC
+      </div>
+      <div style={{ color: "#9090b0", fontSize: "11px", lineHeight: "1.5" }}>
+        Managing digital systems and supporting administrative operations within a
+        government organization.
+      </div>
     </div>
+
     <div>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-        <span style={{ color: "#ff88aa", fontSize: "12px", fontWeight: "bold" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          marginBottom: "3px",
+        }}
+      >
+        <span style={{ color: "#ff88aa", fontSize: "14px", fontWeight: 700 }}>
           Web Developer Intern
         </span>
-        <span style={{ color: "#666688", fontSize: "9px" }}>Summer 2023</span>
+        <span style={{ color: "#8888aa", fontSize: "11px" }}>Summer 2023</span>
       </div>
-      <div style={{ color: "#9999bb", fontSize: "10px" }}>CHC Navigation · Tunis, Tunisia</div>
+      <div style={{ color: "#b0b0d0", fontSize: "12px", marginBottom: "4px" }}>
+        CHC Navigation &middot; Tunis, Tunisia
+      </div>
+      <div style={{ color: "#9090b0", fontSize: "11px", lineHeight: "1.5" }}>
+        Built and maintained web tools for geospatial navigation solutions. Worked
+        with REST APIs and frontend frameworks.
+      </div>
     </div>
-    <div style={{ borderTop: "1px solid #ffffff15", paddingTop: "6px" }}>
-      <div style={{ color: "#aa88ff", fontSize: "11px", fontWeight: "bold" }}>
-        BSc Computer Science
+
+    <div style={{ borderTop: "1px solid #ffffff20", paddingTop: "10px" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+          marginBottom: "3px",
+        }}
+      >
+        <span style={{ color: "#aa88ff", fontSize: "14px", fontWeight: 700 }}>
+          BSc Computer Science
+        </span>
+        <span style={{ color: "#8888aa", fontSize: "11px" }}>2023 &ndash; Present</span>
       </div>
-      <div style={{ color: "#9999bb", fontSize: "10px" }}>Université Laval · Sept 2023 – Present</div>
+      <div style={{ color: "#b0b0d0", fontSize: "12px" }}>
+        Universit&eacute; Laval &middot; Qu&eacute;bec City, QC
+      </div>
     </div>
   </div>
 );
@@ -92,10 +188,10 @@ export default function DigitalWorkspace() {
       <GridFloor color="#00ffff" position={[0, -1, -5]} size={80} />
 
       <HolographicText
-        text="MOHAMED SLIM"
-        position={[0, 3, -3]}
+        text="EXPLORE MY WORLD"
+        position={[0, 3.2, -3]}
         color="#00d4ff"
-        size={0.6}
+        size={0.5}
       />
 
       <FloatingPanel
@@ -103,7 +199,7 @@ export default function DigitalWorkspace() {
         title="Skills"
         content={<SkillsContent />}
         color="#00d4ff"
-        width={300}
+        width={320}
       />
 
       <FloatingPanel
@@ -111,7 +207,7 @@ export default function DigitalWorkspace() {
         title="About Me"
         content={<AboutContent />}
         color="#aa44ff"
-        width={300}
+        width={320}
       />
 
       <FloatingPanel
@@ -119,7 +215,7 @@ export default function DigitalWorkspace() {
         title="Experience"
         content={<ExperienceContent />}
         color="#ff006e"
-        width={320}
+        width={350}
       />
 
       <DataParticles
