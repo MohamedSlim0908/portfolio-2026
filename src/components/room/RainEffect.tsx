@@ -38,7 +38,7 @@ export default function RainEffect() {
   });
 
   return (
-    <points geometry={geometry} position={[-3, 2, -3]} frustumCulled={false}>
+    <points geometry={geometry} position={[-3, 2, -1.5]} frustumCulled={false}>
       <shaderMaterial
         ref={materialRef}
         vertexShader={rainVert}

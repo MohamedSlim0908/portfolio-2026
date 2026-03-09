@@ -61,7 +61,7 @@ export default function Window() {
   });
 
   return (
-    <group position={[-1.8, 1.8, -1.5]} rotation={[0, Math.PI / 2, 0]}>
+    <group position={[-1.98, 1.8, -0.8]} rotation={[0, Math.PI / 2, 0]}>
       {/* Window frame */}
       <mesh>
         <boxGeometry args={[1.8, 1.5, 0.05]} />

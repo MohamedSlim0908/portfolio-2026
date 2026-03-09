@@ -2,6 +2,7 @@
 
 import Desk from "../room/Desk";
 import Monitor from "../room/Monitor";
+import SecondMonitor from "../room/SecondMonitor";
 import Keyboard from "../room/Keyboard";
 import CoffeeMug from "../room/CoffeeMug";
 import Chair from "../room/Chair";
@@ -12,6 +13,12 @@ import Window from "../room/Window";
 import RainEffect from "../room/RainEffect";
 import CitySkyline from "../room/CitySkyline";
 import RoomLighting from "../room/RoomLighting";
+import Bed from "../room/Bed";
+import Bookshelf from "../room/Bookshelf";
+import RoundRug from "../room/RoundRug";
+import WallShelf from "../room/WallShelf";
+import WallDecor from "../room/WallDecor";
+import SleepingDog from "../room/SleepingDog";
 
 export default function RoomScene() {
   return (
@@ -40,6 +47,15 @@ export default function RoomScene() {
         <meshStandardMaterial color="#261838" roughness={0.8} />
       </mesh>
 
+      {/* Right wall */}
+      <mesh
+        position={[2.8, 1.5, -0.5]}
+        rotation={[0, -Math.PI / 2, 0]}
+      >
+        <planeGeometry args={[4, 3]} />
+        <meshStandardMaterial color="#261838" roughness={0.8} />
+      </mesh>
+
       {/* Ceiling */}
       <mesh position={[0, 3, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <planeGeometry args={[6, 6]} />
@@ -49,16 +65,27 @@ export default function RoomScene() {
       {/* Furniture */}
       <Desk />
       <Monitor />
+      <SecondMonitor />
       <Keyboard />
       <CoffeeMug />
       <Chair />
       <DeveloperFigure />
       <DeskGadgets />
 
+      {/* New decorations */}
+      <Bed />
+      <Bookshelf />
+      <RoundRug />
+      <WallShelf position={[-1.5, 2.2, -1.98]} />
+      <WallShelf position={[0.3, 2.4, -1.98]} />
+      <WallDecor />
+      <SleepingDog />
+
       {/* Plants */}
       <Plant position={[-0.9, 0.78, -1.35]} scale={1.2} />
       <Plant position={[1.0, 0.78, -1.3]} scale={0.9} />
       <Plant position={[-1.5, 0, -1.5]} scale={2.0} />
+      <Plant position={[2.4, 0, -0.3]} scale={1.8} />
 
       {/* Window + Outside */}
       <Window />
