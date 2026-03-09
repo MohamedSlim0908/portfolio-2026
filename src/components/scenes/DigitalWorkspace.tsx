@@ -206,7 +206,7 @@ export default function DigitalWorkspace() {
 
       <HolographicText
         text="EXPLORE MY WORLD"
-        position={[0, 4.5, -1.5]}
+        position={[0, 4, -1.5]}
         color="#00d4ff"
         size={0.4}
       />
