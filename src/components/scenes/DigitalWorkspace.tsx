@@ -79,10 +79,27 @@ const AboutContent = () => (
       of design, code, and user experience.
     </div>
     <div style={{ color: "#b0b0d0", fontSize: "13px", lineHeight: "1.7" }}>
-      Currently developing{" "}
-      <span style={{ color: "#39ff14", fontWeight: 600 }}>Makteb</span> &mdash; a
-      community-driven learning platform for Tunisia &amp; North Africa. Passionate
-      about crafting impactful products from idea to deployment.
+      Currently building{" "}
+      <span style={{ color: "#39ff14", fontWeight: 700 }}>Makteb</span>
+      <span
+        style={{
+          display: "inline-block",
+          fontSize: "9px",
+          fontWeight: 700,
+          color: "#0a0a0a",
+          background: "linear-gradient(90deg, #39ff14, #20cc10)",
+          padding: "1px 7px",
+          borderRadius: "3px",
+          marginLeft: "6px",
+          letterSpacing: "1px",
+          verticalAlign: "middle",
+          textTransform: "uppercase",
+        }}
+      >
+        Startup in Dev
+      </span>{" "}
+      &mdash; a community-driven learning platform for Tunisia &amp; North Africa.
+      Passionate about crafting impactful products from idea to deployment.
     </div>
     <div style={{ display: "flex", gap: "8px", marginTop: "4px" }}>
       {[
@@ -189,9 +206,9 @@ export default function DigitalWorkspace() {
 
       <HolographicText
         text="EXPLORE MY WORLD"
-        position={[0, 3.2, -3]}
+        position={[0, 4.5, -1.5]}
         color="#00d4ff"
-        size={0.5}
+        size={0.4}
       />
 
       <FloatingPanel
