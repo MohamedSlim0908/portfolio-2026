@@ -61,6 +61,7 @@ export default function TerminalWorld() {
       <ProjectCard3D
         project={projects[0]}
         position={[0, 2.2, -1]}
+        visibleInScenes={[5]}
       />
 
       <CodeRain />

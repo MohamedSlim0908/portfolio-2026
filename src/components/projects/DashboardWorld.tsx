@@ -92,6 +92,7 @@ export default function DashboardWorld() {
       <ProjectCard3D
         project={projects[1]}
         position={[0, 2.2, -1]}
+        visibleInScenes={[6]}
       />
 
       <DataParticles

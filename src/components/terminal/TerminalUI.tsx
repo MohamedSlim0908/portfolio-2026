@@ -23,13 +23,14 @@ export default function TerminalUI() {
     <Html
       transform
       occlude={false}
-      distanceFactor={6}
+      distanceFactor={8}
       position={[0, 0, 0.05]}
       style={{ pointerEvents: showLinks ? "auto" : "none" }}
     >
       <div
         style={{
-          width: "500px",
+          width: "min(500px, 90vw)",
+          maxWidth: "90vw",
           padding: "32px",
           fontFamily: "monospace",
           userSelect: "none",
@@ -114,6 +115,7 @@ export default function TerminalUI() {
               { label: "[ GitHub ]", href: "https://github.com/MohamedSlim0908" },
               { label: "[ LinkedIn ]", href: "https://linkedin.com/in/mohamed-slim-026023293" },
               { label: "[ Contact ]", href: "mailto:mohamed.slim.2@ulaval.ca" },
+              { label: "[ Resume ]", href: "/resume.pdf" },
             ].map((link) => (
               <a
                 key={link.label}

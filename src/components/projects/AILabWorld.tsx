@@ -120,6 +120,7 @@ export default function AILabWorld() {
       <ProjectCard3D
         project={projects[2]}
         position={[0, 2.2, -1]}
+        visibleInScenes={[7]}
       />
 
       <DataParticles

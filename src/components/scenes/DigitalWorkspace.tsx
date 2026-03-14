@@ -4,31 +4,27 @@ import GridFloor from "../digital/GridFloor";
 import FloatingPanel from "../digital/FloatingPanel";
 import DataParticles from "../digital/DataParticles";
 import HolographicText from "../digital/HolographicText";
+import { usePortfolioStore } from "@/stores/usePortfolioStore";
 
 const skillCategories = [
   {
     label: "Languages",
-    items: ["C++", "Python", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"],
+    items: ["Python", "JavaScript", "C++", "HTML", "CSS"],
     color: "#00d4ff",
   },
   {
-    label: "Frontend",
-    items: ["React", "Next.js", "Vue.js", "Three.js", "Tailwind", "Bootstrap"],
+    label: "Frameworks",
+    items: ["Vue.js", "React", "Node.js", "Express", "FastAPI", "Bootstrap", "RESTful APIs"],
     color: "#aa88ff",
   },
   {
-    label: "Backend",
-    items: ["Node.js", "Express", "FastAPI", "REST APIs", "WebSockets"],
+    label: "Databases & Tools",
+    items: ["PostgreSQL", "SQLite", "Docker", "Git", "Swagger/OpenAPI", "Jupyter", "Pandas", "scikit-learn"],
     color: "#00ffaa",
   },
   {
-    label: "Data & ML",
-    items: ["Pandas", "scikit-learn", "Matplotlib", "Jupyter", "NumPy"],
-    color: "#ff88aa",
-  },
-  {
-    label: "DevOps & Tools",
-    items: ["Docker", "Git", "PostgreSQL", "Redis", "Prisma", "Swagger"],
+    label: "Concepts",
+    items: ["OOP", "Algorithms", "Data Structures", "JWT Auth", "WebSockets", "Agile/Scrum"],
     color: "#ffaa44",
   },
 ];
@@ -104,7 +100,7 @@ const AboutContent = () => (
     <div style={{ display: "flex", gap: "8px", marginTop: "4px" }}>
       {[
         { label: "GitHub", href: "https://github.com/MohamedSlim0908" },
-        { label: "LinkedIn", href: "https://linkedin.com" },
+        { label: "LinkedIn", href: "https://linkedin.com/in/mohamed-slim-026023293" },
       ].map((link) => (
         <a
           key={link.label}
@@ -142,17 +138,18 @@ const ExperienceContent = () => (
         }}
       >
         <span style={{ color: "#ff88aa", fontSize: "14px", fontWeight: 700 }}>
-          Admin Technician
+          Web Developer Intern
         </span>
-        <span style={{ color: "#8888aa", fontSize: "11px" }}>2024 &ndash; Present</span>
+        <span style={{ color: "#8888aa", fontSize: "11px" }}>Summer 2023</span>
       </div>
       <div style={{ color: "#b0b0d0", fontSize: "12px", marginBottom: "4px" }}>
-        Retraite Qu&eacute;bec &middot; Qu&eacute;bec City, QC
+        CHC Navigation (GPS &amp; Topography) &middot; Tunis, Tunisia
       </div>
-      <div style={{ color: "#9090b0", fontSize: "11px", lineHeight: "1.5" }}>
-        Managing digital systems and supporting administrative operations within a
-        government organization.
-      </div>
+      <ul style={{ color: "#9090b0", fontSize: "11px", lineHeight: "1.6", margin: 0, paddingLeft: "14px" }}>
+        <li>Built a responsive product showcase for GNSS/GPS equipment (HTML, CSS, JS) &mdash; shipped to production</li>
+        <li>Structured product pages with specs and intuitive navigation alongside senior developers</li>
+        <li>Validated cross-device compatibility across desktop, tablet, and mobile</li>
+      </ul>
     </div>
 
     <div>
@@ -165,17 +162,16 @@ const ExperienceContent = () => (
         }}
       >
         <span style={{ color: "#ff88aa", fontSize: "14px", fontWeight: 700 }}>
-          Web Developer Intern
+          Administrative Technician
         </span>
-        <span style={{ color: "#8888aa", fontSize: "11px" }}>Summer 2023</span>
+        <span style={{ color: "#8888aa", fontSize: "11px" }}>Jan 2024 &ndash; Present</span>
       </div>
       <div style={{ color: "#b0b0d0", fontSize: "12px", marginBottom: "4px" }}>
-        CHC Navigation &middot; Tunis, Tunisia
+        Retraite Qu&eacute;bec &middot; Qu&eacute;bec City, QC
       </div>
-      <div style={{ color: "#9090b0", fontSize: "11px", lineHeight: "1.5" }}>
-        Built and maintained web tools for geospatial navigation solutions. Worked
-        with REST APIs and frontend frameworks.
-      </div>
+      <ul style={{ color: "#9090b0", fontSize: "11px", lineHeight: "1.6", margin: 0, paddingLeft: "14px" }}>
+        <li>Processed and tracked client files for RRQ mandates in a regulated compliance environment</li>
+      </ul>
     </div>
 
     <div style={{ borderTop: "1px solid #ffffff20", paddingTop: "10px" }}>
@@ -190,50 +186,67 @@ const ExperienceContent = () => (
         <span style={{ color: "#aa88ff", fontSize: "14px", fontWeight: 700 }}>
           BSc Computer Science
         </span>
-        <span style={{ color: "#8888aa", fontSize: "11px" }}>2023 &ndash; Present</span>
+        <span style={{ color: "#8888aa", fontSize: "11px" }}>Sept 2023 &ndash; Present</span>
       </div>
-      <div style={{ color: "#b0b0d0", fontSize: "12px" }}>
+      <div style={{ color: "#b0b0d0", fontSize: "12px", marginBottom: "4px" }}>
         Universit&eacute; Laval &middot; Qu&eacute;bec City, QC
+      </div>
+      <div style={{ color: "#9090b0", fontSize: "10px", lineHeight: "1.5" }}>
+        Data Structures &amp; Algorithms, Web Dev, OS, OOP, ML, Databases, Software Engineering
       </div>
     </div>
   </div>
 );
 
 export default function DigitalWorkspace() {
+  const scrollProgress = usePortfolioStore((s) => s.scrollProgress);
+
+  // Digital workspace scene: 0.28 - 0.48
+  // Show panels sequentially - no overlap to prevent stacking
+  const showSkills = scrollProgress >= 0.27 && scrollProgress < 0.35;
+  const showAbout = scrollProgress >= 0.35 && scrollProgress < 0.42;
+  const showExperience = scrollProgress >= 0.42 && scrollProgress <= 0.49;
+
   return (
     <group>
       <GridFloor color="#00ffff" position={[0, -1, -5]} size={80} />
 
       <HolographicText
-        text="EXPLORE MY WORLD"
-        position={[0, 4, -1.5]}
+        text="FULL-STACK DEVELOPER"
+        position={[0, 5.5, -1.5]}
         color="#00d4ff"
-        size={0.4}
+        size={0.6}
       />
 
-      <FloatingPanel
-        position={[-3, 2, -5]}
-        title="Skills"
-        content={<SkillsContent />}
-        color="#00d4ff"
-        width={320}
-      />
+      {showSkills && (
+        <FloatingPanel
+          position={[-2.5, 2, -2]}
+          title="Skills"
+          content={<SkillsContent />}
+          color="#00d4ff"
+          width={320}
+        />
+      )}
 
-      <FloatingPanel
-        position={[3, 2.5, -6]}
-        title="About Me"
-        content={<AboutContent />}
-        color="#aa44ff"
-        width={320}
-      />
+      {showAbout && (
+        <FloatingPanel
+          position={[1.5, 2, -7]}
+          title="About Me"
+          content={<AboutContent />}
+          color="#aa44ff"
+          width={300}
+        />
+      )}
 
-      <FloatingPanel
-        position={[0, 1.5, -8]}
-        title="Experience"
-        content={<ExperienceContent />}
-        color="#ff006e"
-        width={350}
-      />
+      {showExperience && (
+        <FloatingPanel
+          position={[0, 2, -12]}
+          title="Experience"
+          content={<ExperienceContent />}
+          color="#ff006e"
+          width={350}
+        />
+      )}
 
       <DataParticles
         count={120}

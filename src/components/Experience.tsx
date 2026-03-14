@@ -10,6 +10,9 @@ import ScrollRig from "./ScrollRig";
 import LoadingScreen from "./LoadingScreen";
 import ScrollIndicator from "./ui/ScrollIndicator";
 import NavigationDots from "./ui/NavigationDots";
+import HeroOverlay from "./ui/HeroOverlay";
+import TopBar from "./ui/TopBar";
+import ResumeButton from "./ui/ResumeButton";
 import { useMobileDetect } from "@/hooks/useMobileDetect";
 import { usePortfolioStore } from "@/stores/usePortfolioStore";
 
@@ -55,6 +58,9 @@ export default function Experience() {
       <LoadingScreen />
       <ScrollIndicator />
       <NavigationDots />
+      <HeroOverlay />
+      <TopBar />
+      <ResumeButton />
     </>
   );
 }

@@ -42,38 +42,10 @@ export default function FloatingPanel({
 
   return (
     <group ref={groupRef} position={position}>
-      {/* Glass background - darker for readability */}
-      <mesh>
-        <planeGeometry args={[2.8, 2]} />
-        <meshBasicMaterial
-          color="#030310"
-          transparent
-          opacity={0.85}
-          side={THREE.DoubleSide}
-        />
-      </mesh>
-
-      {/* Border glow */}
-      <mesh>
-        <planeGeometry args={[2.85, 2.05]} />
-        <meshBasicMaterial
-          color={color}
-          transparent
-          opacity={0.2}
-          side={THREE.DoubleSide}
-        />
-      </mesh>
-
-      {/* Top accent line */}
-      <mesh position={[0, 1.0, 0.005]}>
-        <planeGeometry args={[2.7, 0.008]} />
-        <meshBasicMaterial color={color} transparent opacity={0.6} />
-      </mesh>
-
       {/* HTML Content */}
       <Html
         transform
-        distanceFactor={5}
+        distanceFactor={7}
         position={[0, 0, 0.01]}
         style={{ pointerEvents: "none" }}
       >

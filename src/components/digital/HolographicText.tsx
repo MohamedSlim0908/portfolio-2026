@@ -23,7 +23,7 @@ export default function HolographicText({
   useFrame((state) => {
     if (textRef.current) {
       const mat = textRef.current.material as THREE.MeshBasicMaterial;
-      mat.opacity = 0.7 + Math.sin(state.clock.elapsedTime * 2) * 0.15;
+      mat.opacity = 0.9 + Math.sin(state.clock.elapsedTime * 2) * 0.1;
     }
   });
 

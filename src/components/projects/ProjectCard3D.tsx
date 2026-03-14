@@ -61,13 +61,14 @@ export default function ProjectCard3D({
       {/* HTML overlay */}
       <Html
         transform
-        distanceFactor={5}
+        distanceFactor={7}
         position={[0, 0, 0.02]}
         style={{ pointerEvents: "none" }}
       >
         <div
           style={{
-            width: "420px",
+            width: "min(420px, 85vw)",
+            maxWidth: "85vw",
             fontFamily: "monospace",
             color: "#e8e8f0",
             userSelect: "none",
